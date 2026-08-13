@@ -13,10 +13,10 @@
         <div>
           <img src="assets/images/logo.svg" alt="Weather Now Logo" />
         </div>
-        <select name="Units" id="">
+        <select name="Units" id="unitSelect">
           <option value="">Units</option>
-          <option value="">Metric</option>
-          <option value="">Imperial</option>
+          <option value="metricBtn" selected>Metric</option>
+          <option value="imperialBtn">Imperial</option>
         </select>
       </header>
       <h1>How's the sky looking today?</h1>
@@ -24,88 +24,88 @@
       <button id="searchBtn">Search</button>
       Units Switch to Imperial/Metric Temperature Celsius (°C) Fahrenheit (°F)
       Search for a city, e.g., New York Search
-      <p>Feels like <span id="feelsLikeTemp"></span></p>
+      <p>Feels like <span class="metric" id="feelsLikeTemp"></span></p>
       <div>
-        <p>It is currently <span id="currentTemp"></span></p>
+        <p>It is currently <span class="metric" id="currentTemp"></span></p>
       </div>
 
       <p>Humidity</p>
       <span id="currentHumidity"></span>
       <p>Wind</p>
-      <span id="currentWindSpeed"></span>
+      <span class="metric" id="currentWindSpeed"></span>
 
       Precipitation
-      <span id="currentPrecipitation"></span>
+      <span class="metric" id="currentPrecipitation"></span>
 
       Daily forecast
       <div class="days">
         <p class="date"></p>
-        <p class="min"></p>
-        <p class="max"></p>
+        <p class="min metric"></p>
+        <p class="max metric"></p>
       </div>
       <div class="days">
         <p class="date"></p>
-        <p class="min"></p>
-        <p class="max"></p>
+        <p class="min metric"></p>
+        <p class="max metric"></p>
       </div>
       <div class="days">
         <p class="date"></p>
-        <p class="min"></p>
-        <p class="max"></p>
+        <p class="min metric"></p>
+        <p class="max metric"></p>
       </div>
       <div class="days">
         <p class="date"></p>
-        <p class="min"></p>
-        <p class="max"></p>
+        <p class="min metric"></p>
+        <p class="max metric"></p>
       </div>
       <div class="days">
         <p class="date"></p>
-        <p class="min"></p>
-        <p class="max"></p>
+        <p class="min metric"></p>
+        <p class="max metric"></p>
       </div>
       <div class="days">
         <p class="date"></p>
-        <p class="min"></p>
-        <p class="max"></p>
+        <p class="min metric"></p>
+        <p class="max metric"></p>
       </div>
       <div class="days">
         <p class="date"></p>
-        <p class="min"></p>
-        <p class="max"></p>
+        <p class="min metric"></p>
+        <p class="max metric"></p>
       </div>
 
       Hourly forecast
       <div class="hours">
         <p class="time"></p>
-        <p class="hourly-temp"></p>
+        <p class="hourly-temp metric"></p>
       </div>
       <div class="hours">
         <p class="time"></p>
-        <p class="hourly-temp"></p>
+        <p class="hourly-temp metric"></p>
       </div>
       <div class="hours">
         <p class="time"></p>
-        <p class="hourly-temp"></p>
+        <p class="hourly-temp metric"></p>
       </div>
       <div class="hours">
         <p class="time"></p>
-        <p class="hourly-temp"></p>
+        <p class="hourly-temp metric"></p>
       </div>
       <div class="hours">
         <p class="time"></p>
-        <p class="hourly-temp"></p>
+        <p class="hourly-temp metric"></p>
       </div>
       <div class="hours">
         <p class="time"></p>
-        <p class="hourly-temp"></p>
+        <p class="hourly-temp metric"></p>
       </div>
       <div class="hours">
         <p class="time"></p>
-        <p class="hourly-temp"></p>
+        <p class="hourly-temp metric"></p>
       </div>
       <div class="hours">
         <p class="time"></p>
-        <p class="hourly-temp"></p>
+        <p class="hourly-temp metric"></p>
       </div>
     </main>
     <footer></footer>
