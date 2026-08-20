@@ -20,92 +20,111 @@
         </select>
       </header>
       <h1>How's the sky looking today?</h1>
-      <input id="search" type="text" />
-      <button id="searchBtn">Search</button>
-      Units Switch to Imperial/Metric Temperature Celsius (°C) Fahrenheit (°F)
-      Search for a city, e.g., New York Search
-      <p>Feels like <span class="metric" id="feelsLikeTemp"></span></p>
-      <div>
-        <p>It is currently <span class="metric" id="currentTemp"></span></p>
+      <div class="search-container">
+        <input placeholder="Search for a place..." id="search" type="text" />
+        <button id="searchBtn">Search</button>
       </div>
+      <div class="weather-app">
+        <section class="hero-card">
+          <div>
+            <p class="currentDate"></p>
+            <p>It is currently <span class="metric" id="currentTemp"></span></p>
+          </div>
+        </section>
 
-      <p>Humidity</p>
-      <span id="currentHumidity"></span>
-      <p>Wind</p>
-      <span class="metric" id="currentWindSpeed"></span>
+        <div class="stats-row">
+          <div class="stat-card">
+            <p>Feels like <span class="metric" id="feelsLikeTemp"></span></p>
+          </div>
+          <div class="stat-card">
+            <p>Humidity</p>
+            <span id="currentHumidity"></span>
+          </div>
+          <div class="stat-card">
+            <p>Wind</p>
+            <span class="metric" id="currentWindSpeed"></span>
+          </div>
+          <div class="stat-card">
+            Precipitation <span class="metric" id="currentPrecipitation"></span>
+          </div>
+        </div>
 
-      Precipitation
-      <span class="metric" id="currentPrecipitation"></span>
+        <section class="daily-forecast">
+          <h2>Daily forecast</h2>
+          <div class="days-grid">
+            <div class="days">
+              <p class="date"></p>
+              <p class="min metric"></p>
+              <p class="max metric"></p>
+            </div>
+            <div class="days">
+              <p class="date"></p>
+              <p class="min metric"></p>
+              <p class="max metric"></p>
+            </div>
+            <div class="days">
+              <p class="date"></p>
+              <p class="min metric"></p>
+              <p class="max metric"></p>
+            </div>
+            <div class="days">
+              <p class="date"></p>
+              <p class="min metric"></p>
+              <p class="max metric"></p>
+            </div>
+            <div class="days">
+              <p class="date"></p>
+              <p class="min metric"></p>
+              <p class="max metric"></p>
+            </div>
+            <div class="days">
+              <p class="date"></p>
+              <p class="min metric"></p>
+              <p class="max metric"></p>
+            </div>
+            <div class="days">
+              <p class="date"></p>
+              <p class="min metric"></p>
+              <p class="max metric"></p>
+            </div>
+          </div>
+        </section>
 
-      Daily forecast
-      <div class="days">
-        <p class="date"></p>
-        <p class="min metric"></p>
-        <p class="max metric"></p>
-      </div>
-      <div class="days">
-        <p class="date"></p>
-        <p class="min metric"></p>
-        <p class="max metric"></p>
-      </div>
-      <div class="days">
-        <p class="date"></p>
-        <p class="min metric"></p>
-        <p class="max metric"></p>
-      </div>
-      <div class="days">
-        <p class="date"></p>
-        <p class="min metric"></p>
-        <p class="max metric"></p>
-      </div>
-      <div class="days">
-        <p class="date"></p>
-        <p class="min metric"></p>
-        <p class="max metric"></p>
-      </div>
-      <div class="days">
-        <p class="date"></p>
-        <p class="min metric"></p>
-        <p class="max metric"></p>
-      </div>
-      <div class="days">
-        <p class="date"></p>
-        <p class="min metric"></p>
-        <p class="max metric"></p>
-      </div>
-
-      Hourly forecast
-      <div class="hours">
-        <p class="time"></p>
-        <p class="hourly-temp metric"></p>
-      </div>
-      <div class="hours">
-        <p class="time"></p>
-        <p class="hourly-temp metric"></p>
-      </div>
-      <div class="hours">
-        <p class="time"></p>
-        <p class="hourly-temp metric"></p>
-      </div>
-      <div class="hours">
-        <p class="time"></p>
-        <p class="hourly-temp metric"></p>
-      </div>
-      <div class="hours">
-        <p class="time"></p>
-        <p class="hourly-temp metric"></p>
-      </div>
-      <div class="hours">
-        <p class="time"></p>
-        <p class="hourly-temp metric"></p>
-      </div>
-      <div class="hours">
-        <p class="time"></p>
-        <p class="hourly-temp metric"></p>
-      </div>
-      <div class="hours">
-        <p class="time"></p>
-        <p class="hourly-temp metric"></p>
+        <aside class="hourly-sidebar">
+          <h2>Hourly forecast</h2>
+          <div class="hours">
+            <p class="time"></p>
+            <p class="hourly-temp metric"></p>
+          </div>
+          <div class="hours">
+            <p class="time"></p>
+            <p class="hourly-temp metric"></p>
+          </div>
+          <div class="hours">
+            <p class="time"></p>
+            <p class="hourly-temp metric"></p>
+          </div>
+          <div class="hours">
+            <p class="time"></p>
+            <p class="hourly-temp metric"></p>
+          </div>
+          <div class="hours">
+            <p class="time"></p>
+            <p class="hourly-temp metric"></p>
+          </div>
+          <div class="hours">
+            <p class="time"></p>
+            <p class="hourly-temp metric"></p>
+          </div>
+          <div class="hours">
+            <p class="time"></p>
+            <p class="hourly-temp metric"></p>
+          </div>
+          <div class="hours">
+            <p class="time"></p>
+            <p class="hourly-temp metric"></p>
+          </div>
+        </aside>
       </div>
     </main>
     <footer></footer>

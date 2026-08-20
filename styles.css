@@ -1,9 +1,159 @@
+body {
+  background-color: hsl(243, 96%, 9%);
+  color: white;
+}
+
 main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 h1 {
   text-align: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.search-container #search {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+}
+
+.search-container #search::placeholder {
+  color: white;
+}
+
+.search-container #searchBtn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  background-color: hsl(233, 67%, 56%);
+  color: white;
+  border: none;
+}
+
+.weather-app {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "hero    sidebar"
+    "stats   sidebar"
+    "daily   sidebar";
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Hero card */
+.hero-card {
+  grid-area: hero;
+  background: linear-gradient(135deg, hsl(230, 60%, 55%), hsl(245, 55%, 45%));
+  border-radius: 16px;
+  padding: 32px;
+}
+
+/* Stat cards (Feels Like / Humidity / Wind / Precipitation) */
+.stats-row {
+  grid-area: stats;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  background-color: hsl(243, 23%, 24%);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* Daily forecast */
+.daily-forecast {
+  grid-area: daily;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+}
+
+.days {
+  background-color: hsl(243, 23%, 18%);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.days .date {
+  font-weight: 600;
+}
+
+.days .min,
+.days .max {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Hourly sidebar */
+.hourly-sidebar {
+  grid-area: sidebar;
+  background-color: hsl(243, 23%, 18%);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hours {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: hsl(243, 23%, 24%);
+  border-radius: 10px;
+  padding: 14px 18px;
+}
+
+.hours .time {
+  opacity: 0.8;
+}
+
+.hours .hourly-temp {
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .weather-app {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hero"
+      "stats"
+      "daily"
+      "sidebar";
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .days-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
