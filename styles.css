@@ -1,6 +1,7 @@
 body {
   background-color: hsl(243, 96%, 9%);
   color: white;
+  font-family: "DM Sans", sans-serif;
 }
 
 main {
@@ -17,6 +18,11 @@ header {
 
 h1 {
   text-align: center;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 
 .search-container {
@@ -57,7 +63,6 @@ h1 {
   padding: 24px;
 }
 
-/* Hero card */
 .hero-card {
   grid-area: hero;
   background: linear-gradient(135deg, hsl(230, 60%, 55%), hsl(245, 55%, 45%));
@@ -65,7 +70,6 @@ h1 {
   padding: 32px;
 }
 
-/* Stat cards (Feels Like / Humidity / Wind / Precipitation) */
 .stats-row {
   grid-area: stats;
   display: grid;
@@ -79,7 +83,6 @@ h1 {
   padding: 20px;
 }
 
-/* Daily forecast */
 .daily-forecast {
   grid-area: daily;
 }

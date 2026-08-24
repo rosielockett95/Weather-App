@@ -22,6 +22,8 @@ async function getCurrentWeather(lat, lon) {
 
   const data = await response.json();
 
+  console.log(data);
+
   const imperialResponse = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min&hourly=temperature_2m&current=temperature_2m,precipitation,wind_speed_10m,apparent_temperature&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch`,
   );
@@ -31,7 +33,7 @@ async function getCurrentWeather(lat, lon) {
   render(data, imperialData);
 }
 
-function render(imp, met) {
+function render(met, imp) {
   document.querySelector("#currentTemp").textContent = document
     .querySelector("#currentTemp")
     .classList.contains("metric")
@@ -69,8 +71,10 @@ function render(imp, met) {
   const imperialForecastArrayMin = imp.daily.temperature_2m_min;
   const imperialForecastArrayMax = imp.daily.temperature_2m_max;
 
+  let date;
+
   days.forEach((day, index) => {
-    const dates = new Date(met.daily.time[index]);
+    dates = new Date(met.daily.time[index]);
 
     day.querySelector(".date").textContent = dates.toLocaleDateString("en-GB", {
       weekday: "long",
@@ -86,22 +90,82 @@ function render(imp, met) {
       ? `${dailyForecastArrayMax[index]}`
       : `${imperialForecastArrayMax[index]}`;
   });
+  const hourlyTempArray = met.hourly.temperature_2m;
+  const hourlyTimeArray = met.hourly.time;
 
-  const hourlyTempArray = met.hourly.temperature_2m.slice(0, 8);
-  const hourlyTimeArray = met.hourly.time.slice(0, 8);
+  const imperialTempArray = imp.hourly.temperature_2m;
 
-  const imperialTempArray = imp.hourly.temperature_2m.slice(0, 8);
+  console.log(met.hourly.temperature_2m);
 
   const hours = document.querySelectorAll(".hours");
+  let allDaysText;
+  let currentDay;
 
-  hours.forEach((hour, index) => {
-    hour.querySelector(".time").textContent = `${hourlyTimeArray[index]}`;
-    hour.querySelector(".hourly-temp").textContent = hour
-      .querySelector(".hourly-temp")
-      .classList.contains("metric")
-      ? `${hourlyTempArray[index]} degrees`
-      : `${imperialTempArray[index]} farenheit`;
+  currentDay = met.daily.time.map((currentDay) => {
+    return new Date(currentDay).toLocaleDateString("en-GB", {
+      weekday: "long",
+    });
   });
+
+  document.querySelectorAll(".current-day").forEach((day, index) => {
+    day.textContent = currentDay[index];
+  });
+
+  allDaysText = document.querySelectorAll(".current-day");
+
+  const daysSelectInput = document.querySelector("#daysSelect");
+
+  function changeHours(
+    currentTempArray,
+    currentImperialTempArray,
+    selectedDayIndex,
+  ) {
+    const startIndex = selectedDayIndex * 8;
+    const endIndex = startIndex + 8;
+
+    const selectedTempArray = currentTempArray.slice(startIndex, endIndex);
+    const selectedImperialTempArray = currentImperialTempArray.slice(
+      startIndex,
+      endIndex,
+    );
+
+    const selectedTimeArray = hourlyTimeArray.slice(startIndex, endIndex);
+
+    hours.forEach((hour, index) => {
+      const time = new Date(selectedTimeArray[index]);
+
+      hour.querySelector(".time").textContent = time.toLocaleTimeString(
+        "en-US",
+        {
+          hour: "numeric",
+          hour12: true,
+        },
+      );
+
+      hour.querySelector(".hourly-temp").textContent = hour
+        .querySelector(".hourly-temp")
+        .classList.contains("metric")
+        ? `${selectedTempArray[index]} degrees`
+        : `${selectedImperialTempArray[index]} farenheit`;
+    });
+  }
+
+  const initialDayIndex = currentDay.indexOf(daysSelectInput.value);
+
+  changeHours(hourlyTempArray, imperialTempArray, initialDayIndex);
+
+  function changeInput() {
+    const daysSelectInputValue = daysSelectInput.value;
+
+    const selectedDayIndex = currentDay.indexOf(daysSelectInputValue);
+
+    changeHours(hourlyTempArray, imperialTempArray, selectedDayIndex);
+
+    console.log(daysSelectInputValue);
+    console.log(selectedDayIndex);
+  }
+
+  daysSelectInput.addEventListener("change", changeInput);
 }
 
 // Get API information from search bar input
