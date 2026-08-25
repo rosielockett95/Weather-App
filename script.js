@@ -91,13 +91,28 @@ function render(met, imp) {
   const hourlyTempArray = met.hourly.temperature_2m.slice(0, 8);
   const hourlyTimeArray = met.hourly.time.slice(0, 8);
 
-  const hourlyTempArray2 = met.hourly.temperature_2m.slice(16, 24);
+  console.log(met.hourly.temperature_2m);
+
+  const hourlyTempArray2 = met.hourly.temperature_2m.slice(24, 32);
+  const hourlyTempArray3 = met.hourly.temperature_2m.slice(48, 56);
+  const hourlyTempArray4 = met.hourly.temperature_2m.slice(72, 80);
+  const hourlyTempArray5 = met.hourly.temperature_2m.slice(96, 104);
+  const hourlyTempArray6 = met.hourly.temperature_2m.slice(120, 128);
+  const hourlyTempArray7 = met.hourly.temperature_2m.slice(144, 152);
 
   const imperialTempArray = imp.hourly.temperature_2m.slice(0, 8);
+  const imperialTempArray2 = imp.hourly.temperature_2m.slice(24, 32);
+  const imperialTempArray3 = imp.hourly.temperature_2m.slice(48, 56);
+  const imperialTempArray4 = imp.hourly.temperature_2m.slice(72, 80);
+  const imperialTempArray5 = imp.hourly.temperature_2m.slice(96, 104);
+  const imperialTempArray6 = imp.hourly.temperature_2m.slice(120, 128);
+  const imperialTempArray7 = imp.hourly.temperature_2m.slice(144, 152);
 
   const hours = document.querySelectorAll(".hours");
   let allDaysText;
   let currentDay;
+
+  console.log(hourlyTimeArray.slice(0, 24));
 
   currentDay = met.daily.time.map((currentDay) => {
     return new Date(currentDay).toLocaleDateString("en-GB", {
@@ -137,11 +152,35 @@ function render(met, imp) {
 
   function changeInput() {
     const daysSelectInputValue = daysSelectInput.value;
-    if (daysSelectInputValue === currentDay[1]) {
-      changeHours(hourlyTempArray2, imperialTempArray);
-    }
+    switch (daysSelectInputValue) {
+      case currentDay[0]:
+        changeHours(hourlyTempArray, imperialTempArray);
+        break;
 
-    console.log(daysSelectInputValue);
+      case currentDay[1]:
+        changeHours(hourlyTempArray2, imperialTempArray2);
+        break;
+
+      case currentDay[2]:
+        changeHours(hourlyTempArray3, imperialTempArray3);
+        break;
+
+      case currentDay[3]:
+        changeHours(hourlyTempArray4, imperialTempArray4);
+        break;
+
+      case currentDay[4]:
+        changeHours(hourlyTempArray5, imperialTempArray5);
+        break;
+
+      case currentDay[5]:
+        changeHours(hourlyTempArray6, imperialTempArray6);
+        break;
+
+      case currentDay[6]:
+        changeHours(hourlyTempArray7, imperialTempArray7);
+        break;
+    }
   }
 
   daysSelectInput.addEventListener("change", changeInput);
