@@ -2,6 +2,7 @@ body {
   background-color: hsl(243, 96%, 9%);
   color: white;
   font-family: "DM Sans", sans-serif;
+  box-sizing: border-box;
 }
 
 main {
@@ -63,11 +64,19 @@ h1 {
   padding: 24px;
 }
 
+.hero-container {
+  position: relative;
+  background-image: url("assets/images/bg-today-large.svg");
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}
+
 .hero-card {
   grid-area: hero;
-  background: linear-gradient(135deg, hsl(230, 60%, 55%), hsl(245, 55%, 45%));
   border-radius: 16px;
   padding: 32px;
+  position: absolute;
 }
 
 .stats-row {
@@ -101,6 +110,13 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+
+.days div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-evenly;
 }
 
 .days .date {

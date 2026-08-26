@@ -80,13 +80,13 @@ function render(met, imp) {
     day.querySelector(".min").textContent = day
       .querySelector(".min")
       .classList.contains("metric")
-      ? `${dailyForecastArrayMin[index]}`
-      : `${imperialForecastArrayMin[index]}`;
+      ? `${Math.round(dailyForecastArrayMin[index])}°C`
+      : `${Math.round(imperialForecastArrayMin[index])}°F`;
     day.querySelector(".max").textContent = day
       .querySelector(".max")
       .classList.contains("metric")
-      ? `${dailyForecastArrayMax[index]}`
-      : `${imperialForecastArrayMax[index]}`;
+      ? `${Math.round(dailyForecastArrayMax[index])}°C`
+      : `${Math.round(imperialForecastArrayMax[index])}°F`;
   });
   const hourlyTempArray = met.hourly.temperature_2m.slice(0, 8);
   const hourlyTimeArray = met.hourly.time.slice(0, 8);
@@ -143,8 +143,8 @@ function render(met, imp) {
       hour.querySelector(".hourly-temp").textContent = hour
         .querySelector(".hourly-temp")
         .classList.contains("metric")
-        ? `${currentTempArray[index]} degrees`
-        : `${currentImperialTempArray[index]} farenheit`;
+        ? `${Math.round(currentTempArray[index])} degrees`
+        : `${Math.round(currentImperialTempArray[index])} farenheit`;
     });
   }
 
