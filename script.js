@@ -143,8 +143,8 @@ function render(met, imp) {
       hour.querySelector(".hourly-temp").textContent = hour
         .querySelector(".hourly-temp")
         .classList.contains("metric")
-        ? `${Math.round(currentTempArray[index])} degrees`
-        : `${Math.round(currentImperialTempArray[index])} farenheit`;
+        ? `${Math.round(currentTempArray[index])}°C`
+        : `${Math.round(currentImperialTempArray[index])}°F`;
     });
   }
 
